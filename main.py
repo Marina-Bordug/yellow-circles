@@ -7,10 +7,10 @@ from random import randint
 from maindesign import Design
 
 
-class Circles(QMainWindow, Design):
+class Circles(Design, QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setupUi(self)
+        self.setupUi(Circles)
         self.do_paint = False
         self.btn.clicked.connect(self.paint)
 
