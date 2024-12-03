@@ -1,4 +1,3 @@
-import sqlite3
 import sys
 
 from PyQt6 import uic
@@ -9,7 +8,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from random import randint
 
 
-class ClockMaker(QMainWindow):
+class Circles(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("yl-circ-des.ui", self)
@@ -39,6 +38,6 @@ class ClockMaker(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = ClockMaker()
+    ex = Circles()
     ex.show()
     sys.exit(app.exec())
