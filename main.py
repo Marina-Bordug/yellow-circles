@@ -1,17 +1,16 @@
 import sys
 
-from PyQt6 import uic
 from PyQt6.QtGui import QPainter, QColor
-from PyQt6.QtWidgets import QApplication, QPushButton
+from PyQt6.QtWidgets import QApplication
 from PyQt6.QtWidgets import QMainWindow
-from PyQt6 import QtCore, QtGui, QtWidgets
 from random import randint
+from maindesign import Design
 
 
-class Circles(QMainWindow):
+class Circles(QMainWindow, Design):
     def __init__(self):
         super().__init__()
-        uic.loadUi("yl-circ-des.ui", self)
+        self.setupUi(self)
         self.do_paint = False
         self.btn.clicked.connect(self.paint)
 
@@ -28,9 +27,12 @@ class Circles(QMainWindow):
         self.update()
 
     def draw_circles(self, qp):
-        qp.setBrush(QColor(255, 255, 0))
-        qp.setPen(QColor(255, 255, 0))
         for i in range(5):
+            c1 = randint(1, 255)
+            c2 = randint(1, 255)
+            c3 = randint(1, 255)
+            qp.setBrush(QColor(c1, c2, c3))
+            qp.setPen(QColor(c1, c2, c3))
             a = randint(1, 200)
             b = randint(1, 200)
             qp.drawEllipse(a, a, b, b)
